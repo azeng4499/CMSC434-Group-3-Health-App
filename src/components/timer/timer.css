@@ -1,0 +1,55 @@
+.timer-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+.timer-button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+}
+
+.timer-button {
+  font-weight: 500;
+  font-size: 2rem;
+  border: solid black 2px;
+  padding: 2px 15px;
+  border-radius: 20px;
+}
+
+.timer-circle-container {
+  width: 640px;
+  /* height: 640px; */
+  /* background-color: aqua; */
+}
+
+.timer-circle {
+  width: 600px;
+  height: 500px;
+  background-color: #f0f0f0;
+  border: solid #02c39a 5px;
+}
+
+.next-up-label {
+  padding: 10px 0px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.next-up-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 150px;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.line {
+  height: 3px;
+  width: 100%;
+  background-color: black;
+}
