@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
-import "./timer.css";
+import "./preset-workout.css";
 import Nav from "../shared/nav/nav";
 
-const Timer = () => {
+const PresetWorkout = ({
+  setPage,
+  showHamburgerMenu,
+  setShowHamburgerMenu,
+}) => {
   const SETTINGS = ["Run", "Bike", "HIIT", "Swim"];
   const [selected, setSelected] = useState("Run");
   const [seconds, setSeconds] = useState(150);
@@ -64,7 +68,11 @@ const Timer = () => {
 
   return (
     <div className="timer-container">
-      <Nav />
+      <Nav
+        setPage={setPage}
+        showHamburgerMenu={showHamburgerMenu}
+        setShowHamburgerMenu={setShowHamburgerMenu}
+      />
       <div className="timer-button-container">
         {SETTINGS.map((setting) => {
           return (
@@ -179,9 +187,10 @@ const Timer = () => {
         </div>
       </div>
       <div
-        className={`w-screen h-[800px] absolute top-[160px] left-0 bottom-0 right-0 flex justify-end items-end ${
+        className={`w-screen h-[800px] absolute top-[150px] left-0 bottom-0 right-0 flex justify-end items-end ${
           !showModal && "hidden"
         }`}
+        style={{ zIndex: "98" }}
       >
         <div className="w-full h-[800px] p-4">
           <div className="w-full h-full bg-white rounded-lg border border-5 border-black flex flex-col">
@@ -716,4 +725,4 @@ const SWIM_30 = [
   },
 ];
 
-export default Timer;
+export default PresetWorkout;
