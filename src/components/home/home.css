@@ -1,0 +1,115 @@
+.home-container {
+    width: 100%;
+}
+
+.home-greeting {
+    width: 100%;
+    padding: .5rem 1.5rem;
+    font-size: 2rem;
+}
+
+.home-boxes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.home-button {
+    background-color: #F0F0F0;
+    color: black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    width: 500px;
+    height: 150px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 20px;
+}
+
+.home-timer:hover {
+    background-color: #03C39B;
+    color: black;
+}
+
+.home-workout-lookup:hover {
+    background-color: #00A896;
+    color: black;
+}
+
+.home-record-workout:hover {
+    background-color: #008190;
+    color: black;
+}
+
+.home-record-calories:hover {
+    background-color: #09678D;
+    color: black;
+}
+
+
+.home-timer {
+    border: solid #03C39B 5px;
+    padding: 0 25px;
+    /* Add padding to create space between text and icon */
+}
+
+.home-workout-lookup{
+    border: solid #00A896 5px;
+    padding: 0 25px;
+}
+
+.home-record-workout {
+    border: solid #008190 5px;
+    padding: 0 25px;
+}
+
+.home-record-calories {
+    border: solid #09678D 5px;
+    padding: 0 25px;
+}
+
+.timer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Align text content to the left */
+}
+
+.start-text {
+    font-size: 26px;
+}
+
+.timer-description {
+    font-size: 18px;
+    margin-top: 5px;
+    /* Add margin-top to create space between start-text and timer-description */
+}
+
+.timer-icon {
+    color: #03C39B;
+    font-size: 80px;
+}
+
+.workout-lookup-icon {
+    color: #00A896;
+    font-size: 80px;
+}
+
+.record-workout-icon {
+    color: #008190;
+    font-size: 80px;
+}
+
+.record-calories-icon {
+    color: #09678D;
+    font-size: 80px;
+}

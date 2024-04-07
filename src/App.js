@@ -56,11 +56,7 @@ function App() {
   };
 
   return (
-<<<<<<< HEAD
-    <div style={{ width: "100vw", height: "100vh" }}>{/* <Timer /> */}</div>
-=======
     <div style={{ width: "100vw", height: "100vh" }}>{returnPage(page)}</div>
->>>>>>> 54f3cd8215048706e9d31399abd0ac135c66eb57
   );
 }
 
