@@ -3,10 +3,14 @@ import "./nav.css";
 import { CiMenuBurger } from "react-icons/ci";
 import { FaCircleUser } from "react-icons/fa6";
 import { MdClose } from "react-icons/md";
+import { useSelector, useDispatch } from "react-redux";
+import { setShowHamburgerMenu, setPage } from "../../../store/actions";
 
-const Nav = ({ setPage, showHamburgerMenu, setShowHamburgerMenu }) => {
+const Nav = () => {
   const sidebarOpenClasses = "transform translate-x-0 ease-out";
   const sidebarClosedClasses = "transform -translate-x-full ease-in";
+  const showHamburgerMenu = useSelector((state) => state.showHamburgerMenu);
+  const dispatch = useDispatch();
 
   return (
     <div className="nav-container">
@@ -20,7 +24,7 @@ const Nav = ({ setPage, showHamburgerMenu, setShowHamburgerMenu }) => {
           <MdClose
             className="h-[2.8rem] w-[2.8rem]"
             onClick={() => {
-              setShowHamburgerMenu(false);
+              dispatch(setShowHamburgerMenu(false));
             }}
           />
         </div>
@@ -28,8 +32,8 @@ const Nav = ({ setPage, showHamburgerMenu, setShowHamburgerMenu }) => {
           <button
             className="border bg-white w-full rounded-full text-xl font-semibold py-2"
             onClick={() => {
-              setShowHamburgerMenu(false);
-              setPage("home");
+              dispatch(setShowHamburgerMenu(false));
+              dispatch(setPage("home"));
             }}
           >
             Home
@@ -39,8 +43,8 @@ const Nav = ({ setPage, showHamburgerMenu, setShowHamburgerMenu }) => {
           <button
             className="border bg-white w-full rounded-full text-xl font-semibold py-2"
             onClick={() => {
-              setShowHamburgerMenu(false);
-              setPage("calorie-tracker");
+              dispatch(setShowHamburgerMenu(false));
+              dispatch(setPage("calorie-tracker"));
             }}
           >
             Calorie Tracker
@@ -50,8 +54,8 @@ const Nav = ({ setPage, showHamburgerMenu, setShowHamburgerMenu }) => {
           <button
             className="border bg-white w-full rounded-full text-xl font-semibold py-2"
             onClick={() => {
-              setShowHamburgerMenu(false);
-              setPage("workout-tracker");
+              dispatch(setShowHamburgerMenu(false));
+              dispatch(setPage("workout-tracker"));
             }}
           >
             Workout Tracker
@@ -61,8 +65,8 @@ const Nav = ({ setPage, showHamburgerMenu, setShowHamburgerMenu }) => {
           <button
             className="border bg-white w-full rounded-full text-xl font-semibold py-2"
             onClick={() => {
-              setShowHamburgerMenu(false);
-              setPage("workout-lookup");
+              dispatch(setShowHamburgerMenu(false));
+              dispatch(setPage("workout-lookup"));
             }}
           >
             Workout Lookup
@@ -72,8 +76,8 @@ const Nav = ({ setPage, showHamburgerMenu, setShowHamburgerMenu }) => {
           <button
             className="border bg-white w-full rounded-full text-xl font-semibold py-2"
             onClick={() => {
-              setShowHamburgerMenu(false);
-              setPage("preset-workout");
+              dispatch(setShowHamburgerMenu(false));
+              dispatch(setPage("preset-workout"));
             }}
           >
             Preset Workout
@@ -85,7 +89,7 @@ const Nav = ({ setPage, showHamburgerMenu, setShowHamburgerMenu }) => {
         <CiMenuBurger
           style={{ width: "2.5rem", height: "2.5rem" }}
           onClick={() => {
-            setShowHamburgerMenu(true);
+            dispatch(setShowHamburgerMenu(true));
           }}
         />
         <svg
@@ -96,7 +100,8 @@ const Nav = ({ setPage, showHamburgerMenu, setShowHamburgerMenu }) => {
           style={{ height: "3.8rem", width: "300px" }}
           xmlns="http://www.w3.org/2000/svg"
           onClick={() => {
-            setPage("home");
+            dispatch(setPage("home"));
+            dispatch(setShowHamburgerMenu(false));
           }}
         >
           <path

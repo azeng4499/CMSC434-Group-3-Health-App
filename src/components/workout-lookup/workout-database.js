@@ -1,7 +1,10 @@
 {
   /* Dumbbell, cables, bar, None*/
 }
-const ARM_WORKOUTS = [
+
+export const ARM_WORKOUT_MUSCLE_GROUPS = ["Bicep", "Tricep"];
+export const ARM_WORKOUT_EQUIPMENT = ["Dumbbells", "Cables", "Bar"];
+export const ARM_WORKOUTS = [
   {
     name: "Bicep Dumbbell Curls",
     description:
@@ -48,7 +51,7 @@ const ARM_WORKOUTS = [
       "Start in a plank position with hands shoulder-width apart, lower your body until your chest nearly touches the ground, then push back up to the starting position by straightening your arms.",
     difficulty: 1,
     muscle: "Tricep",
-    equipment: "None",
+    equipment: "No Equipment",
   },
   {
     name: "Tricep Rope Pulldowns",
@@ -76,21 +79,23 @@ const ARM_WORKOUTS = [
   },
 ];
 
-const LEG_WORKOUTS = [
+export const LEG_WORKOUT_MUSCLE_GROUPS = ["Quads", "Hamstrings", "Calves"];
+export const LEG_WORKOUT_EQUIPMENT = ["Bar"];
+export const LEG_WORKOUTS = [
   {
     name: "Jumping Squats",
     description:
       "Perform a squat, then explosively jump upward while extending your arms overhead, and land softly, bending your knees to absorb the impact.",
     difficulty: 1,
-    muscle: "Legs",
-    equipment: "None",
+    muscle: "Quads",
+    equipment: "No Equipment",
   },
   {
     name: "Barbell Squats",
     description:
       "Stand with a barbell resting on your upper back and shoulders, then lower your body by bending your knees and hips until your thighs are parallel to the ground, keeping your chest up and back straight, then push through your heels to return to standing position.",
     difficulty: 4,
-    muscle: "Legs",
+    muscle: "Quads",
     equipment: "Bar",
   },
   {
@@ -98,7 +103,7 @@ const LEG_WORKOUTS = [
     description:
       "Stand with your feet hip-width apart, bend your knees and hinge at your hips to lower your torso while keeping your back straight, grip the barbell with hands shoulder-width apart, and lift the barbell by driving through your heels and straightening your hips and knees until you're standing upright, then lower the barbell back to the ground in a controlled manner.",
     difficulty: 5,
-    muscle: "Legs",
+    muscle: "Quads",
     equipment: "Bar",
   },
   {
@@ -106,15 +111,15 @@ const LEG_WORKOUTS = [
     description:
       "Step forward with one leg, lowering your hips until both knees are bent at 90-degree angles, then push back up to the starting position using your front heel to return to standing",
     difficulty: 1,
-    muscle: "Legs",
-    equipment: "None",
+    muscle: "Quads",
+    equipment: "No Equipment",
   },
   {
     name: "Romanian Deadlifts",
     description:
       "Stand with feet hip-width apart, holding a barbell in front of your thighs, hinge at the hips while keeping your back straight, lower the barbell toward the ground, then return to standing position by squeezing your glutes and engaging your hamstrings.",
     difficulty: 5,
-    muscle: "Legs",
+    muscle: "Hamstrings",
     equipment: "Bar",
   },
   {
@@ -122,12 +127,14 @@ const LEG_WORKOUTS = [
     description:
       "Stand with your feet hip-width apart, then rise onto your toes as high as possible, holding the position briefly before lowering back down. (Can be done with dumbbells as well)",
     difficulty: 2,
-    muscle: "Legs",
-    equipment: "None",
+    muscle: "Calves",
+    equipment: "No Equipment",
   },
 ];
 
-const UPPER_BODY = [
+export const UPPER_BODY_MUSCLE_GROUPS = ["Back", "Chest", "Shoulders"];
+export const UPPER_BODY_EQUIPMENT = ["Bar", "Dumbbells", "Cables"];
+export const UPPER_BODY_WORKOUTS = [
   {
     name: "Bench Press",
     description:
@@ -182,7 +189,7 @@ const UPPER_BODY = [
       "Grasp the pull-up bar with an overhand grip slightly wider than shoulder-width apart, then pull your body upward until your chin clears the bar, and lower yourself back down with control.",
     difficulty: 1,
     muscle: "Back",
-    equipment: "None",
+    equipment: "No Equipment",
   },
   {
     name: "Lat Pulldowns",
