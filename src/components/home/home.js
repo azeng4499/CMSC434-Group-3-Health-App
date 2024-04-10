@@ -5,21 +5,20 @@ import { MdOutlineTimer } from "react-icons/md";
 import { IoBarbell } from "react-icons/io5";
 import { TfiWrite } from "react-icons/tfi";
 import { CiForkAndKnife } from "react-icons/ci";
+import { useDispatch } from "react-redux";
+import { setPage } from "../../store/actions";
 
-const Home = ({ setPage, showHamburgerMenu, setShowHamburgerMenu }) => {
+const Home = () => {
+  const dispatch = useDispatch();
   return (
     <div className="w-screen h-screen">
-      <Nav
-        setPage={setPage}
-        showHamburgerMenu={showHamburgerMenu}
-        setShowHamburgerMenu={setShowHamburgerMenu}
-      />
+      <Nav />
       <div className="home-container">
         <div className="home-greeting">Good Morning Trajan</div>
         <div className="home-boxes">
           <button
             onClick={() => {
-              setPage("preset-workout");
+              dispatch(setPage("preset-workout"));
             }}
             className="home-button home-timer"
           >
@@ -35,7 +34,7 @@ const Home = ({ setPage, showHamburgerMenu, setShowHamburgerMenu }) => {
 
           <button
             onClick={() => {
-              setPage("workout-lookup");
+              dispatch(setPage("workout-lookup"));
             }}
             className="home-button home-workout-lookup"
           >
@@ -51,7 +50,7 @@ const Home = ({ setPage, showHamburgerMenu, setShowHamburgerMenu }) => {
 
           <button
             onClick={() => {
-              setPage("workout-tracker");
+              dispatch(setPage("workout-tracker"));
             }}
             className="home-button home-record-workout"
           >
@@ -67,7 +66,7 @@ const Home = ({ setPage, showHamburgerMenu, setShowHamburgerMenu }) => {
 
           <button
             onClick={() => {
-              setPage("calorie-tracker");
+              dispatch(setPage("calorie-tracker"));
             }}
             className="home-button home-record-calories"
           >

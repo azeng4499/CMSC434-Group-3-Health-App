@@ -1,12 +1,61 @@
 import React, { useEffect, useState } from "react";
 import Nav from "../shared/nav/nav";
 import { GrPowerReset } from "react-icons/gr";
+import { IoIosCloseCircle } from "react-icons/io";
+import { IoIosCheckmarkCircle } from "react-icons/io";
 
-const WorkoutLookup = ({
-  setPage,
-  showHamburgerMenu,
-  setShowHamburgerMenu,
-}) => {
+import {
+  ARM_WORKOUTS,
+  LEG_WORKOUTS,
+  ARM_WORKOUT_EQUIPMENT,
+  LEG_WORKOUT_EQUIPMENT,
+  UPPER_BODY_EQUIPMENT,
+  ARM_WORKOUT_MUSCLE_GROUPS,
+  LEG_WORKOUT_MUSCLE_GROUPS,
+  UPPER_BODY_MUSCLE_GROUPS,
+  UPPER_BODY_WORKOUTS,
+} from "./workout-database";
+
+const WorkoutLookup = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [currentMuscleGroup, setCurrentMuscleGroup] = useState({
+    groups: null,
+    equipment: null,
+    workouts: null,
+    type: null,
+  });
+
+  useEffect(() => {
+    if (
+      currentMuscleGroup.groups &&
+      currentMuscleGroup.type &&
+      currentMuscleGroup.equipment
+    ) {
+      const type = currentMuscleGroup.type;
+      const MGObj = currentMuscleGroup.groups;
+      const EquipObj = currentMuscleGroup.equipment;
+      const workouts =
+        type == "Arm"
+          ? ARM_WORKOUTS
+          : type == "Leg"
+          ? LEG_WORKOUTS
+          : UPPER_BODY_WORKOUTS;
+      const sortedWorkouts = workouts.sort((x, y) => {
+        return x.difficulty - y.difficulty;
+      });
+
+      const filterMG = sortedWorkouts.filter((x) => {
+        return MGObj[x.muscle];
+      });
+
+      const filterEquip = filterMG.filter((x) => {
+        return EquipObj[x.equipment];
+      });
+
+      setCurrentMuscleGroup({ ...currentMuscleGroup, workouts: filterEquip });
+    }
+  }, [currentMuscleGroup.groups, currentMuscleGroup.equipment]);
+
   useEffect(() => {
     const leftArm = document.getElementById("left-arm");
     const rightArm = document.getElementById("right-arm");
@@ -50,23 +99,189 @@ const WorkoutLookup = ({
     });
   }, []);
 
+  const clickLegs = () => {
+    setShowModal(true);
+    let groupsObj = {};
+    let equipmentObj = {};
+
+    LEG_WORKOUT_MUSCLE_GROUPS.forEach((group) => {
+      groupsObj[group] = true;
+    });
+
+    LEG_WORKOUT_EQUIPMENT.forEach((equip) => {
+      equipmentObj[equip] = true;
+    });
+
+    setCurrentMuscleGroup({
+      groups: groupsObj,
+      equipment: equipmentObj,
+      workouts: LEG_WORKOUTS.sort((x, y) => {
+        return x.difficulty - y.difficulty;
+      }),
+      type: "Leg",
+    });
+  };
+
+  const clickArms = () => {
+    setShowModal(true);
+    let groupsObj = {};
+    let equipmentObj = {};
+
+    ARM_WORKOUT_MUSCLE_GROUPS.forEach((group) => {
+      groupsObj[group] = true;
+    });
+
+    ARM_WORKOUT_EQUIPMENT.forEach((equip) => {
+      equipmentObj[equip] = true;
+    });
+
+    setCurrentMuscleGroup({
+      groups: groupsObj,
+      equipment: equipmentObj,
+      workouts: ARM_WORKOUTS.sort((x, y) => {
+        return x.difficulty - y.difficulty;
+      }),
+      type: "Arm",
+    });
+  };
+
+  const clickUpperBody = () => {
+    setShowModal(true);
+    let groupsObj = {};
+    let equipmentObj = {};
+
+    UPPER_BODY_MUSCLE_GROUPS.forEach((group) => {
+      groupsObj[group] = true;
+    });
+
+    UPPER_BODY_EQUIPMENT.forEach((equip) => {
+      equipmentObj[equip] = true;
+    });
+
+    setCurrentMuscleGroup({
+      groups: groupsObj,
+      equipment: equipmentObj,
+      workouts: UPPER_BODY_WORKOUTS.sort((x, y) => {
+        return x.difficulty - y.difficulty;
+      }),
+      type: "Upper Body",
+    });
+  };
+
   return (
     <div className="w-screen h-screen">
       <div
-        className="w-screen h-[755px] absolute top-[190px] left-0 bg-blue-400 flex justify-end items-end"
-        // style={{ filter: "opacity(0.5)" }}
+        className={`w-screen h-[760px] absolute top-[175px] left-0 flex justify-end items-end ${
+          !showModal && "hidden"
+        }`}
       >
-        {/* <div className="w-full h-[805px] p-4">
-          <div className="w-full h-full bg-red-400 rounded-b-lg">
-            <img src={AARON} />
+        <div className="w-full h-full px-5">
+          <div className="w-full h-full bg-white rounded-b-lg px-3 py-4">
+            <div className="pb-4 text-xl font-semibold pl-2">
+              Filter by Muscle Group
+            </div>
+            <div className="w-full h-fit flex gap-4">
+              {currentMuscleGroup.groups &&
+                Object.keys(currentMuscleGroup.groups).map((group) => {
+                  return (
+                    <button
+                      className="w-full border border-2 px-4 py-2 rounded-xl font-semibold flex justify-between items-center"
+                      style={{
+                        borderColor:
+                          currentMuscleGroup.groups[group] && "#02C39A",
+                      }}
+                      onClick={() => {
+                        setCurrentMuscleGroup({
+                          ...currentMuscleGroup,
+                          groups: {
+                            ...currentMuscleGroup.groups,
+                            [group]: !currentMuscleGroup.groups[group],
+                          },
+                        });
+                      }}
+                    >
+                      {group}
+                      {currentMuscleGroup.groups[group] ? (
+                        <IoIosCheckmarkCircle
+                          style={{
+                            color: "#02C39A",
+                          }}
+                        />
+                      ) : (
+                        <IoIosCloseCircle />
+                      )}
+                    </button>
+                  );
+                })}
+            </div>
+            <div className="pb-4 text-xl font-semibold pl-2 py-4">
+              Filter by Equipment
+            </div>
+            <div className="w-full h-fit flex gap-4 flex-wrap">
+              {currentMuscleGroup.equipment &&
+                Object.keys(currentMuscleGroup.equipment).map((equip) => {
+                  return (
+                    <button
+                      className={`w-fit gap-4 border border-2 px-4 py-2 rounded-xl font-semibold flex justify-between items-center`}
+                      style={{
+                        borderColor:
+                          currentMuscleGroup.equipment[equip] && "#02C39A",
+                      }}
+                      onClick={() => {
+                        setCurrentMuscleGroup({
+                          ...currentMuscleGroup,
+                          equipment: {
+                            ...currentMuscleGroup.equipment,
+                            [equip]: !currentMuscleGroup.equipment[equip],
+                          },
+                        });
+                      }}
+                    >
+                      {equip}
+                      {currentMuscleGroup.equipment[equip] ? (
+                        <IoIosCheckmarkCircle
+                          style={{
+                            color: "#02C39A",
+                          }}
+                        />
+                      ) : (
+                        <IoIosCloseCircle />
+                      )}
+                    </button>
+                  );
+                })}
+            </div>
+            <div
+              className={`mt-4 w-full h-[530px] border rounded-lg flex flex-col gap-4 px-2 py-4 overflow-scroll`}
+              style={{ backgroundColor: "#f0f0f0" }}
+            >
+              {currentMuscleGroup.workouts &&
+                currentMuscleGroup.workouts.map((workout) => {
+                  return (
+                    <div className="w-full border rounded-lg font-semibold text-lg p-3 bg-white">
+                      <div className="flex justify-between items-center">
+                        {workout.name}
+                        <div className="font-normal">
+                          Difficulty:{" "}
+                          <span
+                            className="font-bold"
+                            style={{ color: "#02C39A" }}
+                          >
+                            {workout.difficulty}
+                          </span>
+                        </div>
+                      </div>
+                      <div className="font-thin mt-2">
+                        {workout.description}
+                      </div>
+                    </div>
+                  );
+                })}
+            </div>
           </div>
-        </div> */}
+        </div>
       </div>
-      <Nav
-        setPage={setPage}
-        showHamburgerMenu={showHamburgerMenu}
-        setShowHamburgerMenu={setShowHamburgerMenu}
-      />
+      <Nav />
       <div
         className="w-full overflow-hidden p-4"
         style={{ height: "calc(100vh - 82.8px)" }}
@@ -75,13 +290,31 @@ const WorkoutLookup = ({
           <div className="w-full flex justify-between items-center text-[3rem] px-4">
             <div>
               <span className="font-semibold" style={{ color: "#02C39A" }}>
-                Workout
+                {currentMuscleGroup.type == null
+                  ? "Workout"
+                  : currentMuscleGroup.type}
               </span>
-              &nbsp;Finder
+              &nbsp;
+              {currentMuscleGroup.type == null ? "Finder" : "Workouts"}
             </div>
-            <div className="bg-gray-300 rounded-full p-2 w-12 h-12 flex justify-center items-center">
-              <GrPowerReset className="w-8" />
-            </div>
+            {showModal && (
+              <div className="bg-gray-400 rounded-full p-2 w-fit h-12 flex justify-center items-center">
+                <div
+                  className="text-sm font-bold"
+                  onClick={() => {
+                    setShowModal(false);
+                    setCurrentMuscleGroup({
+                      groups: null,
+                      equipment: null,
+                      workouts: null,
+                      type: null,
+                    });
+                  }}
+                >
+                  Back
+                </div>
+              </div>
+            )}
           </div>
           <div className="w-full px-4 mb-4">
             <div className="w-full h-[2px] bg-black"></div>
@@ -107,7 +340,7 @@ const WorkoutLookup = ({
                   fill="black"
                   id="legs"
                   onClick={() => {
-                    console.log("legs");
+                    clickLegs();
                   }}
                 />
                 <path
@@ -117,7 +350,7 @@ const WorkoutLookup = ({
                   fill="black"
                   id="right-arm"
                   onClick={() => {
-                    console.log("right-arm");
+                    clickArms();
                   }}
                 />
                 <path
@@ -127,7 +360,7 @@ const WorkoutLookup = ({
                   fill="black"
                   id="body"
                   onClick={() => {
-                    console.log("body");
+                    clickUpperBody();
                   }}
                 />
                 <path
@@ -137,7 +370,7 @@ const WorkoutLookup = ({
                   fill="black"
                   id="left-arm"
                   onClick={() => {
-                    console.log("left-arm");
+                    clickArms();
                   }}
                 />
               </svg>
@@ -153,5 +386,3 @@ const WorkoutLookup = ({
 };
 
 export default WorkoutLookup;
-
-// ARM_EXERCISE = [{}]

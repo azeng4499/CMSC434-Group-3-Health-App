@@ -2,11 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./preset-workout.css";
 import Nav from "../shared/nav/nav";
 
-const PresetWorkout = ({
-  setPage,
-  showHamburgerMenu,
-  setShowHamburgerMenu,
-}) => {
+const PresetWorkout = () => {
   const SETTINGS = ["Run", "Bike", "HIIT", "Swim"];
   const [selected, setSelected] = useState("Run");
   const [seconds, setSeconds] = useState(150);
@@ -68,11 +64,7 @@ const PresetWorkout = ({
 
   return (
     <div className="timer-container">
-      <Nav
-        setPage={setPage}
-        showHamburgerMenu={showHamburgerMenu}
-        setShowHamburgerMenu={setShowHamburgerMenu}
-      />
+      <Nav />
       <div className="timer-button-container">
         {SETTINGS.map((setting) => {
           return (
