@@ -292,7 +292,7 @@ const CalorieTracker = () => {
                 dispatch(
                   addFood({
                     food: selectedFood,
-                    calories: calories,
+                    calories: parseInt(calories),
                     timestamp: Math.floor(Date.now() / 1000),
                   })
                 );
@@ -353,12 +353,6 @@ const CalorieTracker = () => {
                         {cal.calories}
                       </span>
                     </div>
-                    {/* <div className="text-black px-2 py-1 rounded-lg font-normal bg-gray-200">
-                      Workout Time:{" "}
-                      <span className="font-bold" style={{ color: "#02C39A" }}>
-                        {Math.floor(cal.time / 60)} hours {cal.time % 60} mins
-                      </span>
-                    </div> */}
                   </div>
                 </div>
               );

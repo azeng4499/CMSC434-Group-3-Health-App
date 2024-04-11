@@ -66,7 +66,7 @@ const Home = () => {
 
           <button
             onClick={() => {
-              dispatch(setPage("Log Weight"));
+              dispatch(setPage("weight-tracker"));
             }}
             className="home-button home-log-weight"
           >

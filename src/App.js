@@ -7,6 +7,7 @@ import WorkoutTracker from "./components/workout-tracker/workout-tracker";
 import CalorieTracker from "./components/calorie-tracker/calorie-tracker";
 import { useSelector } from "react-redux";
 import WeightTracker from "./components/weight-tracker/weight-tracker";
+import Goals from "./components/goals/goals";
 
 function App() {
   const page = useSelector((state) => state.page);
@@ -25,6 +26,8 @@ function App() {
         return <CalorieTracker />;
       case "weight-tracker":
         return <WeightTracker />;
+      case "goals":
+        return <Goals />;
     }
   };
 

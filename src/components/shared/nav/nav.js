@@ -44,6 +44,17 @@ const Nav = () => {
             className="border bg-white w-full rounded-full text-xl font-semibold py-2"
             onClick={() => {
               dispatch(setShowHamburgerMenu(false));
+              dispatch(setPage("goals"));
+            }}
+          >
+            Goals{" "}
+          </button>
+        </div>
+        <div className="px-4 mt-4">
+          <button
+            className="border bg-white w-full rounded-full text-xl font-semibold py-2"
+            onClick={() => {
+              dispatch(setShowHamburgerMenu(false));
               dispatch(setPage("calorie-tracker"));
             }}
           >

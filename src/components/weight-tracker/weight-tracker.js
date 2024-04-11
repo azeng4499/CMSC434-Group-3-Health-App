@@ -90,7 +90,7 @@ const WeightTracker = () => {
               onClick={() => {
                 dispatch(
                   addWeight({
-                    weight: weight,
+                    weight: parseInt(weight),
                     timestamp: Math.floor(Date.now() / 1000),
                   })
                 );
