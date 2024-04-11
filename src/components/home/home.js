@@ -32,37 +32,20 @@ const Home = () => {
             </div>
             <LuGoal className="goals-icon" />
           </button>
-          
-          <button
-            onClick={() => {
-              dispatch(setPage("preset-workout"));
-            }}
-            className="home-button home-timer"
-          >
-            <div className="timer-content">
-              <div className="start-text">Preset Workout</div>
-              <div className="timer-description">
-                Select From Preset Workouts Tailored to Various Exercises,
-                Ensuring Optimal Training Intervals
-              </div>
-            </div>
-            <MdOutlineTimer className="timer-icon" />
-          </button>
 
           <button
             onClick={() => {
-              dispatch(setPage("workout-lookup"));
+              dispatch(setPage("calorie-tracker"));
             }}
-            className="home-button home-workout-lookup"
+            className="home-button home-record-calories"
           >
             <div className="timer-content">
-              <div className="start-text">Workout Finder</div>
+              <div className="start-text">Log Calories</div>
               <div className="timer-description">
-                Browse Through a Wide Range of Wokrouts, Tailored to Different
-                Fitness Levels and Goals
+                Record Your Daily Caloric Intake and Nutritional Information
               </div>
             </div>
-            <IoBarbell className="workout-lookup-icon" />
+            <CiForkAndKnife className="record-calories-icon" />
           </button>
 
           <button
@@ -83,21 +66,6 @@ const Home = () => {
 
           <button
             onClick={() => {
-              dispatch(setPage("calorie-tracker"));
-            }}
-            className="home-button home-record-calories"
-          >
-            <div className="timer-content">
-              <div className="start-text">Log Calories</div>
-              <div className="timer-description">
-                Record Your Daily Caloric Intake and Nutritional Information
-              </div>
-            </div>
-            <CiForkAndKnife className="record-calories-icon" />
-          </button>
-
-          <button
-            onClick={() => {
               dispatch(setPage("Log Weight"));
             }}
             className="home-button home-log-weight"
@@ -109,6 +77,38 @@ const Home = () => {
               </div>
             </div>
             <FaWeightScale className="log-weight-icon" />
+          </button>
+
+          <button
+            onClick={() => {
+              dispatch(setPage("workout-lookup"));
+            }}
+            className="home-button home-workout-lookup"
+          >
+            <div className="timer-content">
+              <div className="start-text">Workout Finder</div>
+              <div className="timer-description">
+                Browse Through a Wide Range of Wokrouts, Tailored to Different
+                Fitness Levels and Goals
+              </div>
+            </div>
+            <IoBarbell className="workout-lookup-icon" />
+          </button>
+
+          <button
+            onClick={() => {
+              dispatch(setPage("preset-workout"));
+            }}
+            className="home-button home-timer"
+          >
+            <div className="timer-content">
+              <div className="start-text">Preset Workout</div>
+              <div className="timer-description">
+                Select From Preset Workouts Tailored to Various Exercises,
+                Ensuring Optimal Training Intervals
+              </div>
+            </div>
+            <MdOutlineTimer className="timer-icon" />
           </button>
         </div>
       </div>

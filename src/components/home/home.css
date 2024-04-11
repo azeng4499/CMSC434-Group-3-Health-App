@@ -36,12 +36,12 @@
 }
 
 .home-timer:hover {
-    background-color: #03C39B;
+    background-color: #026B66;
     color: black;
 }
 
 .home-workout-lookup:hover {
-    background-color: #00A896;
+    background-color: #036B75;
     color: black;
 }
 
@@ -51,29 +51,29 @@
 }
 
 .home-record-calories:hover {
-    background-color: #09678D;
+    background-color: #00A896;
     color: black;
 }
 
 .home-log-weight:hover {
-    background-color: #036B75;
+    background-color: #09678D;
     color: black;
 }
 
 .home-goals:hover {
-    background-color: #026B66;
+    background-color: #03C39B;
     color: black;
 }
 
 
 .home-timer {
-    border: solid #03C39B 5px;
+    border: solid #026B66 5px;
     padding: 0 25px;
     /* Add padding to create space between text and icon */
 }
 
 .home-workout-lookup{
-    border: solid #00A896 5px;
+    border: solid #036B75 5px;
     padding: 0 25px;
 }
 
@@ -83,17 +83,17 @@
 }
 
 .home-record-calories {
-    border: solid #09678D 5px;
+    border: solid #00A896 5px;
     padding: 0 25px;
 }
 
 .home-log-weight {
-    border: solid #036B75 5px;
+    border: solid #09678D 5px;
     padding: 0 25px;
 }
 
 .home-goals {
-    border: solid #026B66 5px;
+    border: solid #03C39B 5px;
     padding: 0 25px;
 }
 
@@ -117,12 +117,12 @@
 }
 
 .timer-icon {
-    color: #03C39B;
+    color: #026B66;
     font-size: 90px;
 }
 
 .workout-lookup-icon {
-    color: #00A896;
+    color: #036B75;
     font-size: 90px;
 }
 
@@ -132,16 +132,18 @@
 }
 
 .record-calories-icon {
-    color: #09678D;
+    color: #00A896;
     font-size: 80px;
 }
 
 .log-weight-icon{
-    color: #036B75;
+    color: #09678D;
     font-size: 70px;
 }
 
 .goals-icon {
-    color: #026B66;
+    color: #03C39B;
     font-size: 70px;
 }
+
+        background-color: #00A896;
