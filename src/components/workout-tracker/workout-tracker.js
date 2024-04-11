@@ -240,7 +240,7 @@ const WorkoutTracker = () => {
                   addWorkout({
                     type: selectedWorkout,
                     time: parseInt(hour, 10) * 60 + parseInt(minute, 10),
-                    calsBurned: calories,
+                    calsBurned: parseInt(calories),
                     timestamp: Math.floor(Date.now() / 1000),
                   })
                 );

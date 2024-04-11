@@ -6,11 +6,11 @@ import WorkoutLookup from "./components/workout-lookup/workout-lookup";
 import WorkoutTracker from "./components/workout-tracker/workout-tracker";
 import CalorieTracker from "./components/calorie-tracker/calorie-tracker";
 import { useSelector } from "react-redux";
+import WeightTracker from "./components/weight-tracker/weight-tracker";
+import Goals from "./components/goals/goals";
 
 function App() {
-  // const [page, setPage] = useState("home");
   const page = useSelector((state) => state.page);
-  // const [showHamburgerMenu, setShowHamburgerMenu] = useState(false);
 
   const returnPage = (currentPage) => {
     switch (currentPage) {
@@ -24,6 +24,10 @@ function App() {
         return <WorkoutTracker />;
       case "calorie-tracker":
         return <CalorieTracker />;
+      case "weight-tracker":
+        return <WeightTracker />;
+      case "goals":
+        return <Goals />;
     }
   };
 

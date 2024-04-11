@@ -44,10 +44,21 @@ const Nav = () => {
             className="border bg-white w-full rounded-full text-xl font-semibold py-2"
             onClick={() => {
               dispatch(setShowHamburgerMenu(false));
+              dispatch(setPage("goals"));
+            }}
+          >
+            Goals{" "}
+          </button>
+        </div>
+        <div className="px-4 mt-4">
+          <button
+            className="border bg-white w-full rounded-full text-xl font-semibold py-2"
+            onClick={() => {
+              dispatch(setShowHamburgerMenu(false));
               dispatch(setPage("calorie-tracker"));
             }}
           >
-            Calorie Tracker
+            Log Calories
           </button>
         </div>
         <div className="px-4 mt-4">
@@ -58,7 +69,18 @@ const Nav = () => {
               dispatch(setPage("workout-tracker"));
             }}
           >
-            Workout Tracker
+            Log Workout
+          </button>
+        </div>
+        <div className="px-4 mt-4">
+          <button
+            className="border bg-white w-full rounded-full text-xl font-semibold py-2"
+            onClick={() => {
+              dispatch(setShowHamburgerMenu(false));
+              dispatch(setPage("weight-tracker"));
+            }}
+          >
+            Log Weight
           </button>
         </div>
         <div className="px-4 mt-4">
@@ -69,7 +91,7 @@ const Nav = () => {
               dispatch(setPage("workout-lookup"));
             }}
           >
-            Workout Lookup
+            Workout Finder
           </button>
         </div>
         <div className="px-4 mt-4">

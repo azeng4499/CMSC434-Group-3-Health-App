@@ -14,6 +14,12 @@ const defaultState = {
     { food: "Pizza", calories: 700, timestamp: 1712461160 },
   ],
   goals: [],
+  weightLog: [
+    { weight: 140, timestamp: 1712761160 },
+    { weight: 160, timestamp: 1712661160 },
+    { weight: 180, timestamp: 1712561160 },
+    { weight: 200, timestamp: 1712461160 },
+  ],
 };
 
 const Reducers = (state = defaultState, action = {}) => {
@@ -26,6 +32,8 @@ const Reducers = (state = defaultState, action = {}) => {
       return addWorkout(state, action);
     case "ADD_FOOD":
       return addFood(state, action);
+    case "ADD_WEIGHT":
+      return addWeight(state, action);
     case "RESET":
       return reset();
     default:
@@ -58,6 +66,13 @@ const addFood = (state, action) => {
   return {
     ...state,
     calorieLog: [action.payload, ...state.calorieLog],
+  };
+};
+
+const addWeight = (state, action) => {
+  return {
+    ...state,
+    weightLog: [action.payload, ...state.weightLog],
   };
 };
 
