@@ -55,6 +55,16 @@
     color: black;
 }
 
+.home-log-weight:hover {
+    background-color: #036B75;
+    color: black;
+}
+
+.home-goals:hover {
+    background-color: #026B66;
+    color: black;
+}
+
 
 .home-timer {
     border: solid #03C39B 5px;
@@ -77,6 +87,18 @@
     padding: 0 25px;
 }
 
+.home-log-weight {
+    border: solid #036B75 5px;
+    padding: 0 25px;
+}
+
+.home-goals {
+    border: solid #026B66 5px;
+    padding: 0 25px;
+}
+
+
+
 .timer-content {
     display: flex;
     flex-direction: column;
@@ -96,12 +118,12 @@
 
 .timer-icon {
     color: #03C39B;
-    font-size: 80px;
+    font-size: 90px;
 }
 
 .workout-lookup-icon {
     color: #00A896;
-    font-size: 80px;
+    font-size: 90px;
 }
 
 .record-workout-icon {
@@ -112,4 +134,14 @@
 .record-calories-icon {
     color: #09678D;
     font-size: 80px;
+}
+
+.log-weight-icon{
+    color: #036B75;
+    font-size: 70px;
+}
+
+.goals-icon {
+    color: #026B66;
+    font-size: 70px;
 }
