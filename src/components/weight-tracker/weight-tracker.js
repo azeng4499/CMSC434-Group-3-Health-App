@@ -128,6 +128,9 @@ const WeightTracker = () => {
               />
             </div>
           </div>
+          <div className="w-full pb-4 px-4 text-lg">
+            Click the plus icon to add your weight to track progress
+          </div>
           <div className="w-full px-4 mb-4">
             <div className="w-full h-[2px] bg-black"></div>
           </div>
