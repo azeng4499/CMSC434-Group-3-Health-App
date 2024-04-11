@@ -26,6 +26,13 @@ export const addFood = (food) => {
   };
 };
 
+export const addWeight = (weight) => {
+  return {
+    type: "ADD_WEIGHT",
+    payload: weight,
+  };
+};
+
 export const reset = () => {
   return {
     type: "RESET",
