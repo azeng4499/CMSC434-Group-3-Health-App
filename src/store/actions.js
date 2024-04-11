@@ -11,3 +11,24 @@ export const setShowHamburgerMenu = (showHamburgerMenu) => {
     payload: showHamburgerMenu,
   };
 };
+
+export const addWorkout = (workout) => {
+  return {
+    type: "ADD_WORKOUT",
+    payload: workout,
+  };
+};
+
+export const addFood = (food) => {
+  return {
+    type: "ADD_FOOD",
+    payload: food,
+  };
+};
+
+export const reset = () => {
+  return {
+    type: "RESET",
+    payload: null,
+  };
+};

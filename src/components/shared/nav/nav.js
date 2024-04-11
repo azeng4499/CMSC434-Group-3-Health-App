@@ -4,7 +4,7 @@ import { CiMenuBurger } from "react-icons/ci";
 import { FaCircleUser } from "react-icons/fa6";
 import { MdClose } from "react-icons/md";
 import { useSelector, useDispatch } from "react-redux";
-import { setShowHamburgerMenu, setPage } from "../../../store/actions";
+import { setShowHamburgerMenu, setPage, reset } from "../../../store/actions";
 
 const Nav = () => {
   const sidebarOpenClasses = "transform translate-x-0 ease-out";
@@ -81,6 +81,16 @@ const Nav = () => {
             }}
           >
             Preset Workout
+          </button>
+        </div>
+        <div className="px-4 mt-4">
+          <button
+            className="border bg-white w-full rounded-full text-xl font-semibold py-2"
+            onClick={() => {
+              dispatch(reset());
+            }}
+          >
+            Reset
           </button>
         </div>
       </aside>
