@@ -2,23 +2,52 @@ const defaultState = {
   page: "home",
   showHamburgerMenu: false,
   workoutLog: [
-    { type: "HIIT", time: 170, calsBurned: 1000, timestamp: 1712761160 },
-    { type: "Swim", time: 20, calsBurned: 200, timestamp: 1712661160 },
-    { type: "Run", time: 120, calsBurned: 400, timestamp: 1712561160 },
-    { type: "Bike", time: 150, calsBurned: 700, timestamp: 1712461160 },
+    // { type: "HIIT", time: 170, calsBurned: 1000, timestamp: 1712761160 },
+    // { type: "Swim", time: 20, calsBurned: 200, timestamp: 1712661160 },
+    // { type: "Run", time: 120, calsBurned: 400, timestamp: 1712561160 },
+    // { type: "Bike", time: 150, calsBurned: 700, timestamp: 1712461160 },
   ],
   calorieLog: [
-    { food: "Bagels", calories: 170, timestamp: 1712761160 },
-    { food: "Macaroni and cheese", calories: 400, timestamp: 1712661160 },
-    { food: "Cornbread", calories: 100, timestamp: 1712561160 },
-    { food: "Pizza", calories: 700, timestamp: 1712461160 },
+    // { food: "Bagels", calories: 170, timestamp: 1712761160 },
+    // { food: "Macaroni and cheese", calories: 400, timestamp: 1712661160 },
+    // { food: "Cornbread", calories: 100, timestamp: 1712561160 },
+    // { food: "Pizza", calories: 700, timestamp: 1712461160 },
   ],
-  goals: [],
+  goals: {
+    day: {
+      calories: {
+        operator: null,
+        value: null,
+      },
+      workoutTime: {
+        operator: null,
+        value: null,
+      },
+      weight: {
+        operator: null,
+        value: null,
+      },
+    },
+    week: {
+      calories: {
+        operator: null,
+        value: null,
+      },
+      workoutTime: {
+        operator: null,
+        value: null,
+      },
+      weight: {
+        operator: null,
+        value: null,
+      },
+    },
+  },
   weightLog: [
-    { weight: 140, timestamp: 1712761160 },
-    { weight: 160, timestamp: 1712661160 },
-    { weight: 180, timestamp: 1712561160 },
-    { weight: 200, timestamp: 1712461160 },
+    // { weight: 140, timestamp: 1712761160 },
+    // { weight: 160, timestamp: 1712661160 },
+    // { weight: 180, timestamp: 1712561160 },
+    // { weight: 200, timestamp: 1712461160 },
   ],
 };
 
@@ -34,6 +63,10 @@ const Reducers = (state = defaultState, action = {}) => {
       return addFood(state, action);
     case "ADD_WEIGHT":
       return addWeight(state, action);
+    case "EDIT_DAY_GOAL":
+      return editDayGoal(state, action);
+    case "EDIT_WEEK_GOAL":
+      return editWeekGoal(state, action);
     case "RESET":
       return reset();
     default:
@@ -73,6 +106,19 @@ const addWeight = (state, action) => {
   return {
     ...state,
     weightLog: [action.payload, ...state.weightLog],
+  };
+};
+
+export const editDayGoal = (state, action) => {
+  return {
+    ...state,
+    goals: { ...state.goals, day: action.payload },
+  };
+};
+export const editWeekGoal = (state, action) => {
+  return {
+    ...state,
+    goals: { ...state.goals, week: action.payload },
   };
 };
 

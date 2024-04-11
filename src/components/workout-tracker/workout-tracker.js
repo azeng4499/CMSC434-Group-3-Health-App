@@ -45,7 +45,7 @@ const WorkoutTracker = () => {
   const [showModal, setShowModal] = useState(false);
   const [hour, setHour] = useState("");
   const [minute, setMinute] = useState("");
-  const [calories, setCalories] = useState("");
+  // const [calories, setCalories] = useState("");
 
   useEffect(() => {
     const newActivities = activities.filter((a) => {
@@ -62,7 +62,7 @@ const WorkoutTracker = () => {
   const validateHour = (value) => /^[0-9]{0,1}$/.test(value);
   const validateMinute = (value) =>
     /^[0-9]{0,2}$/.test(value) && (value === "" || parseInt(value, 10) < 60);
-  const validateCalories = (value) => /^[0-9]{0,4}$/.test(value); // Validates up to 4 digits
+  // const validateCalories = (value) => /^[0-9]{0,4}$/.test(value); // Validates up to 4 digits
 
   const handleHourInput = (e) => {
     const value = e.target.value;
@@ -82,14 +82,14 @@ const WorkoutTracker = () => {
     }
   };
 
-  const handleCaloriesInput = (e) => {
-    const value = e.target.value;
-    if (validateCalories(value)) {
-      setCalories(value);
-    } else {
-      e.target.value = calories;
-    }
-  };
+  // const handleCaloriesInput = (e) => {
+  //   const value = e.target.value;
+  //   if (validateCalories(value)) {
+  //     setCalories(value);
+  //   } else {
+  //     e.target.value = calories;
+  //   }
+  // };
 
   function formatEpochToDate(epoch) {
     const date = new Date(epoch * 1000);
@@ -185,7 +185,7 @@ const WorkoutTracker = () => {
               </div>
             </div>
           </div>
-          <div className="w-full mt-6 px-1 text-xl font-semibold">
+          {/* <div className="w-full mt-6 px-1 text-xl font-semibold">
             Log Calories Burned
           </div>
           <div className="p-2 border border-gray-500 mt-4 rounded-lg flex justify-center items-center">
@@ -201,13 +201,13 @@ const WorkoutTracker = () => {
                 <div className="text-[2rem]">Calories Burned</div>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="w-full h-[100px] flex justify-center items-end gap-8">
             <button
               className="w-full border rounded-full text-3xl py-1 border-black"
               onClick={() => {
                 setShowModal(false);
-                setCalories("");
+                // setCalories("");
                 setHour("");
                 setMinute("");
                 setSearch("");
@@ -222,8 +222,7 @@ const WorkoutTracker = () => {
                 backgroundColor:
                   selectedWorkout.length > 0 &&
                   hour.length > 0 &&
-                  minute.length > 0 &&
-                  calories.length > 0
+                  minute.length > 0
                     ? "#02C39A"
                     : "#e4e7eb",
               }}
@@ -231,8 +230,7 @@ const WorkoutTracker = () => {
                 !(
                   selectedWorkout.length > 0 &&
                   hour.length > 0 &&
-                  minute.length > 0 &&
-                  calories.length > 0
+                  minute.length > 0
                 )
               }
               onClick={() => {
@@ -240,12 +238,12 @@ const WorkoutTracker = () => {
                   addWorkout({
                     type: selectedWorkout,
                     time: parseInt(hour, 10) * 60 + parseInt(minute, 10),
-                    calsBurned: parseInt(calories),
+                    // calsBurned: parseInt(calories),
                     timestamp: Math.floor(Date.now() / 1000),
                   })
                 );
                 setShowModal(false);
-                setCalories("");
+                // setCalories("");
                 setHour("");
                 setMinute("");
                 setSearch("");
@@ -282,6 +280,9 @@ const WorkoutTracker = () => {
               />
             </div>
           </div>
+          <div className="w-full pb-4 px-4 text-lg">
+            Click the plus icon to add a workout you have completed
+          </div>
           <div className="w-full px-4 mb-4">
             <div className="w-full h-[2px] bg-black"></div>
           </div>
@@ -297,12 +298,12 @@ const WorkoutTracker = () => {
                     <div className="w-full h-[2px] bg-gray-300"></div>
                   </div>
                   <div className="w-full flex justify-start gap-2">
-                    <div className="text-black px-2 py-1 rounded-lg font-normal bg-gray-200">
+                    {/* <div className="text-black px-2 py-1 rounded-lg font-normal bg-gray-200">
                       Calories Burned:{" "}
                       <span className="font-bold" style={{ color: "#02C39A" }}>
                         {workout.calsBurned}
                       </span>
-                    </div>
+                    </div> */}
                     <div className="text-black px-2 py-1 rounded-lg font-normal bg-gray-200">
                       Workout Time:{" "}
                       <span className="font-bold" style={{ color: "#02C39A" }}>

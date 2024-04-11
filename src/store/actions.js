@@ -33,6 +33,19 @@ export const addWeight = (weight) => {
   };
 };
 
+export const editDayGoal = (goal) => {
+  return {
+    type: "EDIT_DAY_GOAL",
+    payload: goal,
+  };
+};
+export const editWeekGoal = (goal) => {
+  return {
+    type: "EDIT_WEEK_GOAL",
+    payload: goal,
+  };
+};
+
 export const reset = () => {
   return {
     type: "RESET",
